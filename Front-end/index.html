@@ -15,23 +15,26 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js" defer></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js" defer></script>
     <script src="js/main.js" defer></script>
-    <title>Title</title>
+    <title>Crashless</title>
 </head>
 
 <body>
     <div class="container">
         <header class="page-header">
-            <h1 class="page-title">
-                <ion-icon name="airplane-outline"></ion-icon>&nbsp;Crashless&nbsp;<ion-icon name="airplane-outline"></ion-icon>
-            </h1>
 
             <nav>
                 <ul class="flex-wrap space-evenly">
+                    <h1 class="page-title">
+                        <ion-icon name="airplane-outline"></ion-icon>&nbsp;Crashless&nbsp;<ion-icon name="airplane-outline"></ion-icon>
+                    </h1>
                     <li>
                         <a class="button button-white" href="index.html">Game</a>
                     </li>
                     <li>
-                        <a class="button button-white" href="about.html">About</a>
+                        <a class="button button-white" href="tutorial%20page.html">About</a>
+                    </li>
+                    <li>
+                        <a class="button button-white" href="leaderboard%20page.html">Leaderboard</a>
                     </li>
                 </ul>
             </nav>
@@ -58,83 +61,32 @@
                 </section>
                 <section class="box">
                     <header>
-                        <h2 id="airport-name">Airport name</h2>
+                        <h2 id="airport-name">Current Location</h2>
                     </header>
-                    <table id="weather">
+                    <table>
                         <tr>
-                            <td>Temperature</td>
-                            <td>
-                                <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="Current weather">
-                            </td>
-                            <td>Wind</td>
-                        </tr>
-                        <tr>
-                            <td id="airport-temp">10°C</td>
-                            <td id="airport-conditions">Cloudy</td>
-                            <td id="airport-wind">40m/s</td>
+                            <td>Country: <span id="country">???</span></td>
+                            <td>Airport: <span id="airport">???</span></td>
                         </tr>
                     </table>
+
                 </section>
-                <section class="box">
+
+            </div>
+            <div class="container">
+                <section class="box2">
                     <header>
-                        <h2>Goals</h2>
+                        <h2>Trivia Questions</h2>
                     </header>
-                    <ul id="goals" class="flex-wrap">
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li class="done">
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
+                        <p>
+                            Question: <span id="question">?????????????</span>
+                        </p>
+                    <button class="button-boolean" type="button" onclick="alert('true')">True</button>
+                    <button class="button-boolean" type="button" onclick="alert('false')">False</button>
                 </section>
             </div>
         </main>
-        <footer class="page-footer">
-            <p>I made this!</p>
-        </footer>
+
         <div class="goal hide">
             <h2>Gooooool!!!</h2>
             <p>
