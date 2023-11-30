@@ -2,17 +2,25 @@
 import mysql.connector
 from geopy.distance import geodesic as GD
 import random
+import json
+from flask import Flask
+from flask_cors import CORS
+from threading import Timer
 
 connection = mysql.connector.connect(
         host='127.0.0.1',
         port=3306,
         database='flight_game',
-        user='root',
-        password='dianapass'
+        user='kim',
+        password='pass_word'
 )
-cus = connection.cursor()
 
-#Variable
+cus = connection.cursor()
+app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+# Variable
 fuel = 30_000
 fuelUsage = 0
 totalDistance = 0
@@ -21,11 +29,11 @@ countryGoal = 5
 fuel_bonus = 10_000
 currentID = '2307'
 
-#Lists
+# Lists
 ID_checker = []
 Questions = ["Romania has the largest salt mine in Europe.", "Iceland doesn’t have mosquitos.", "Norway knighted a penguin. More than once.", "Wales has more sheep than people.", "It is illegal to take a picture of the Eiffel Tower.", "More than 200 Languages are spoken throughout Europe.", "The Stonehenge is the most visited attraction in Europe.", "French fries were Invented in Belgium.", "No Cappuccino After 11 Am in Italy. (social stigma)", "Spain produces 60% of Europe’s cheese.", "Of the British Museum's Collection, Only 1% Is on Display.", "It Is Illegal to Name Your Pig Napoleon in France.", "The Grand Canal in Venice is 50% wine", "Finland has the second most amount of lakes in Europe", "More Chocolate Is Bought at Brussels Airport Than Any Other Place in the World.", "Germany's Famous Oktoberfest Is Actually in November.", "80% of Greece is made up of mountains.", "Sweden is home of the first Christmas tree.", "The Danish language has no word for 'please'.", "LEGO was invented by a Russian."]
 Answers = ["true", "true", "true", "true", "false", "true", "false", "true", "true", "false", "true", "true", "false", "false", "true", "false", "true", "false", "true", "false"]
-Visited_List=[]
+Visited_List = []
 
 # Retrieve countries in Europe from database
 EuropeCountries = []
@@ -79,13 +87,6 @@ def random3airport(country):
             print(f"Airport name: {airport} - ID: {id} ")
             ID_checker.append(str(id))
 
-#Game code
-
-#Importing Time
-from threading import Timer
-
-#Intro
-userName = input("Please enter your name: ")
 
 #Modes
 while True:
@@ -195,3 +196,6 @@ if countryTravelled == countryGoal:
     print("\nCongratulations! You have successfully travelled to 5 different countries :)")
 elif fuel <= 0:
     print("Game over :(\nYou have ran out of fuel....The plane CRASHED")
+
+if __name__ == '__main__':
+    app.run(use_reloader=True, host='127.0.0.1', port=5000)
