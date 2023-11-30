@@ -21,7 +21,6 @@
 <body>
     <div class="container">
         <header class="page-header">
-
             <nav>
                 <ul class="flex-wrap space-evenly">
                     <h1 class="page-title">
@@ -54,8 +53,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>CO2 Consumed: <span id="consumed">999</span>kg</td>
-                            <td>CO2 Budget: <span id="budget">9999</span>kg</td>
+                            <td colspan="2">
+                                <h3 id="player-mode">Mode</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fuel Consumed: <span id="consumed">999</span>l</td>
+                            <td>Fuel Budget: <span id="budget">9999</span>l</td>
+                            <td>Country visited: <span id="country-visited">9999</span></td>
                         </tr>
                     </table>
                 </section>
@@ -95,9 +100,15 @@
         </div>
     </div>
 
-    <div id="player-modal" class="hide">
+    <div id="player-modal" >
         <form id="player-form">
             <input id="player-input" type="text" placeholder="Player name" required>
+            <label for="mode">Choose mode</label>
+            <select id="mode" size="3" required>
+                <option value="easy">Easy</option>
+                <option value="mid">Mid</option>
+                <option value="hard">Hard</option>
+            </select>
             <input type="submit" value="Start game">
         </form>
     </div>

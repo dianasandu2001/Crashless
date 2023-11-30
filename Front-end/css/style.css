@@ -215,6 +215,10 @@ main {
   padding: 1rem;
 }
 
+#player-form label {
+  background-color: beige;
+}
+
 .done {
   background-color: var(--darknavy);
 }
