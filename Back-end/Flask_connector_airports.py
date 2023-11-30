@@ -19,7 +19,6 @@ def airport(id):
         cursor.execute(statement)
         result = cursor.fetchall()
 
-
     except ValueError:
         response = {
             "message": "Invalid number as addend",
