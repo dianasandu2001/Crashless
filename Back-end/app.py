@@ -1,5 +1,4 @@
 import string
-
 import mysql.connector
 from geopy.distance import geodesic as GD
 import random
@@ -32,23 +31,6 @@ country_goal = 5
 fuel_bonus = 10_000
 default_start_ident = 'EFHK'
 default_name = "Ollie"
-
-# List of trivia question
-Questions = ["Romania has the largest salt mine in Europe.", "Iceland doesn’t have mosquitos.",
-             "Norway knighted a penguin. More than once.", "Wales has more sheep than people.",
-             "It is illegal to take a picture of the Eiffel Tower.",
-             "More than 200 Languages are spoken throughout Europe.",
-             "The Stonehenge is the most visited attraction in Europe.", "French fries were Invented in Belgium.",
-             "No Cappuccino After 11 Am in Italy. (social stigma)", "Spain produces 60% of Europe’s cheese.",
-             "Of the British Museum's Collection, Only 1% Is on Display.",
-             "It Is Illegal to Name Your Pig Napoleon in France.", "The Grand Canal in Venice is 50% wine",
-             "Finland has the second most amount of lakes in Europe",
-             "More Chocolate Is Bought at Brussels Airport Than Any Other Place in the World.",
-             "Germany's Famous Oktoberfest Is Actually in November.", "80% of Greece is made up of mountains.",
-             "Sweden is home of the first Christmas tree.", "The Danish language has no word for 'please'.",
-             "LEGO was invented by a Russian."]
-Answers = ["true", "true", "true", "true", "false", "true", "false", "true", "true", "false", "true", "true", "false",
-           "false", "true", "false", "true", "false", "true", "false"]
 
 # List of country in EU
 EuropeCountries = []
@@ -90,7 +72,7 @@ class Airport:
         list = []
         for country in EuropeCountries:
             sql = "SELECT ident, airport.name, latitude_deg, longitude_deg, country.name FROM Airport, country"
-            sql += " WHERE airport.iso_country = country.iso_country AND country.name ='" + country + "' ORDER BY RAND( )  LIMIT 3"
+            sql += " WHERE airport.iso_country = country.iso_country AND country.name ='" + country + "' ORDER BY RAND( )  LIMIT 4"
             cus.execute(sql)
             res = cus.fetchall()
             for r in res:
@@ -117,19 +99,7 @@ class Airport:
         return consumption
 
 
-# Object 2 Trivia questions and answers
-class Trivia:
-    def __init__(self, question=None, answer=None):
-        number = random.randint(0, (len(Questions) - 1))
-        self.question = Questions[number]
-        self.answer = Answers[number]
-        self.trivia = {
-            "question": self.question,
-            "answer": self.answer
-        }
-
-
-# Object 3 Game
+# Object 2 Game
 class Game:
     def __init__(self, id, loc, consumption, player=None):
         self.status = {}
@@ -220,13 +190,6 @@ def newgame():
     dest = args.get("loc")
     json_data = fly(0, dest, 0, player)
     return json_data
-
-# Ask trivia queston
-# http://127.0.0.1:5000/trivia
-@app.route('/trivia')
-def trivia():
-    ques = Trivia()
-    return ques.trivia
 
 
 if __name__ == '__main__':
