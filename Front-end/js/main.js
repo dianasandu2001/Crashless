@@ -63,19 +63,6 @@ function checkGameOver(budget) {
 }
 
 // function to fetch trivia question by country
-function fetchData(url) {
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      return null;
-    });
-}
 
 function askTrivia(countryName) {
   const trueUrl = 'Trivia-true.json';
@@ -131,7 +118,6 @@ function checkGoal(countryVisited) {
 
 
 // function to set up game
-// this is the main function that creates the game and calls the other functions
 async function gameSetup(url) {
   try {
     airportMarkers.clearLayers();
