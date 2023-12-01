@@ -12,6 +12,7 @@ map.setView([60, 24], 7);
 const apiUrl = 'http://127.0.0.1:5000/';
 const startLoc = 'EFHK';
 const airportMarkers = L.featureGroup().addTo(map);
+let countryVisited = 0;
 
 // icons
 const blueIcon = L.divIcon({ className: 'blue-icon' });
@@ -41,6 +42,7 @@ function updateStatus(status) {
   document.querySelector('#player-name').innerHTML = `Player: ${status.name}`;
   document.querySelector('#consumed').innerHTML = status.fuel.consumed;
   document.querySelector('#budget').innerHTML = status.fuel.budget;
+  document.querySelector('#country-visited').innerHTML = countryVisited;
 }
 
 // function to show current location
@@ -59,6 +61,9 @@ function checkGameOver(budget) {
   return true;
 }
 
+// function to ask trivia question
+
+
 // function to check if 5 country have been reached
 
 
@@ -75,7 +80,7 @@ async function gameSetup(url) {
     // check if fuel ran out
     if (!checkGameOver(gameData.status.fuel.budget)) return;
 
-    // put marker on airports
+    // put marker and popup on airports
     for (let airport of gameData.location) {
       const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
       airportMarkers.addLayer(marker);
@@ -99,8 +104,11 @@ async function gameSetup(url) {
         p.innerHTML = `Distance ${airport.distance}km`;
         popupContent.append(p);
         marker.bindPopup(popupContent);
+
+        // add function to fly to choose airport
         goButton.addEventListener('click', function () {
           gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.fuel_consumption}`);
+          countryVisited += 1;
         });
       }
     }
