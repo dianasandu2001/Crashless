@@ -265,6 +265,14 @@ main {
   border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
-
+/* Trivia result box! */
+#result-div {
+  width: 30%;
+  margin: auto;
+  background-color: var(--artichokegreen);
+  border-radius: 10px;
+  text-align: center;
+  padding: 3rem;
+}
 
 

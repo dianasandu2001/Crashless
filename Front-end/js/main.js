@@ -49,7 +49,6 @@ function updateStatus(status) {
 function showLocation(airport) {
   document.querySelector('#airport-name').innerHTML = `${airport.name}`;
   document.querySelector('#country-name').innerHTML = `${airport.country}`;
-  askTrivia(airport.country);
 }
 
 
@@ -63,49 +62,77 @@ function checkGameOver(budget) {
 }
 
 // function to fetch trivia question by country
+function askAndDisplayTrivia(countryName) {
+      const trueUrl = 'Trivia-true.json';
+      const falseUrl = 'Trivia-false.json';
 
-function askTrivia(countryName) {
-  const trueUrl = 'Trivia-true.json';
-  const falseUrl = 'Trivia-false.json';
+      const fetchTrue = getData(trueUrl);
+      const fetchFalse = getData(falseUrl);
 
-  const fetchTrue = getData(trueUrl);
-  const fetchFalse = getData(falseUrl);
+      return Promise.all([fetchTrue, fetchFalse])
+        .then(([trueData, falseData]) => {
+          let questions = {};
+          let isTrueAnswer = false;
 
-  Promise.all([fetchTrue, fetchFalse])
-    .then(([trueData, falseData]) => {
-      let questions = {};
-      let isTrueAnswer = false;
+          if (Math.random() < 0.5) {
+            if (countryName in trueData) {
+              questions = trueData[countryName];
+              isTrueAnswer = true;
+            }
+          } else {
+            if (countryName in falseData) {
+              questions = falseData[countryName];
+            }
+          }
 
-      if (Math.random() < 0.5) {
-        if (countryName in trueData) {
-          questions = trueData[countryName];
-          isTrueAnswer = true;
-        }
-      } else {
-        if (countryName in falseData) {
-          questions = falseData[countryName];
-        }
-      }
+          if (Object.keys(questions).length === 0) {
+            console.error('Country not found in data');
+            return null;
+          }
 
-      if (Object.keys(questions).length === 0) {
-        console.error('Country not found in data');
-        return;
-      }
+          const questionKeys = Object.keys(questions);
+          const randomQuestionKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
+          const randomQuestion = questions[randomQuestionKey];
 
-      const questionKeys = Object.keys(questions);
-      const randomQuestionKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
-      const randomQuestion = questions[randomQuestionKey];
+          const answer = isTrueAnswer ? 'true' : 'false';
 
-      const answer = isTrueAnswer ? 'true' : 'false';
+          return { question: randomQuestion, answer: answer };
+        })
+        .then(question => {
+          if (question) {
+            const dialog = document.getElementById('questionDialog');
+            const questionDiv = document.getElementById('question');
+            const trueButton = document.getElementById('trueButton');
+            const falseButton = document.getElementById('falseButton');
 
-      const triviaQuestion = randomQuestion;
-      const triviaAnswer = answer;
+            questionDiv.textContent = question.question;
 
-      document.querySelector('#question').innerHTML = triviaQuestion;
-    });
+            trueButton.addEventListener('click', () => {
+              checkAnswer('true', question.answer);
+              dialog.close();
+            });
+
+            falseButton.addEventListener('click', () => {
+              checkAnswer('false', question.answer);
+              dialog.close();
+            });
+
+            dialog.showModal();
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+// function to check answer function and update to resultDiv
+function checkAnswer(userAnswer, triviaAnswer) {
+  if (userAnswer === triviaAnswer) {
+    document.querySelector('#result-div').innerHTML = 'Right!';
+  } else {
+    document.querySelector('#result-div').innerHTML = 'Wrong!!!!!';
+  }
 }
-
-
 
 // function to check if 5 country have been reached
 function checkGoal(countryVisited) {
@@ -158,6 +185,8 @@ async function gameSetup(url) {
         goButton.addEventListener('click', function () {
           gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.fuel_consumption}`);
           countryVisited += 1;
+          // Call askAndDisplayTrivia after reaching the airport
+          askAndDisplayTrivia(airport.country);
         });
       }
     }

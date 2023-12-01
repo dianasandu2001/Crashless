@@ -157,6 +157,10 @@ class Game:
         sql = "UPDATE Game SET location='" + location.ident + "' WHERE id='" + self.status["id"] + "'"
         cus.execute(sql)
 
+    def bonus_fuel(self, bonus):
+        sql = "UPDATE Game SET  co2_budget = co2_budget - " + bonus + " WHERE id='" + id + "'"
+        cus.execute(sql)
+
 
 # Function to fly to choose destination
 def fly(id, dest, consumption=0, player=None):
