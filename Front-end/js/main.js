@@ -23,8 +23,9 @@ document.querySelector('#player-form').addEventListener('submit', function (evt)
   const playerName = document.querySelector('#player-input').value;
   const playerMode = document.querySelector('#mode').value;
   document.querySelector('#player-modal').classList.add('hide');
-  document.querySelector('#player-name').innerHTML = `Player: ${playerName}`;
+  //document.querySelector('#player-name').innerHTML = `Player: ${playerName}`;
   document.querySelector('#player-mode').innerHTML = `Mode: ${playerMode}`;
+  gameSetup(`${apiUrl}newgame?player=${playerName}&loc=${startLoc}`);
 });
 
 // function to fetch data from API
@@ -40,12 +41,12 @@ function updateStatus(status) {
   document.querySelector('#player-name').innerHTML = `Player: ${status.name}`;
   document.querySelector('#consumed').innerHTML = status.fuel.consumed;
   document.querySelector('#budget').innerHTML = status.fuel.budget;
-  document.querySelector('#country-visited').innerHTML = status.countryVisited;
 }
 
-// function to show weather at selected airport
-function showAirport(airport) {
+// function to show current location
+function showLocation(airport) {
   document.querySelector('#airport-name').innerHTML = `${airport.name}`;
+  document.querySelector('#country-name').innerHTML = `${airport.country}`;
 }
 
 
@@ -58,22 +59,30 @@ function checkGameOver(budget) {
   return true;
 }
 
+// function to check if 5 country have been reached
+
+
+
 // function to set up game
 // this is the main function that creates the game and calls the other functions
 async function gameSetup(url) {
   try {
     airportMarkers.clearLayers();
     const gameData = await getData(url);
-    console.log(gameData);
+    console.log(gameData)
     updateStatus(gameData.status);
+
+    // check if fuel ran out
     if (!checkGameOver(gameData.status.fuel.budget)) return;
+
+    // put marker on airports
     for (let airport of gameData.location) {
       const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
       airportMarkers.addLayer(marker);
       if (airport.active) {
         map.flyTo([airport.latitude, airport.longitude], 10);
-        showAirport(airport);
-        marker.bindPopup(`You are here: <b>${airport.name}</b>`);
+        showLocation(airport);
+        marker.bindPopup(`You are here: <b>${airport.name}</b> in <b>${airport.country}</b>`);
         marker.openPopup();
         marker.setIcon(greenIcon);
       } else {
@@ -84,24 +93,19 @@ async function gameSetup(url) {
         popupContent.append(h4);
         const goButton = document.createElement('button');
         goButton.classList.add('button');
-        goButton.innerHTML = 'Fly here';
+        goButton.innerHTML = 'Fly me to the moon';
         popupContent.append(goButton);
         const p = document.createElement('p');
         p.innerHTML = `Distance ${airport.distance}km`;
         popupContent.append(p);
         marker.bindPopup(popupContent);
         goButton.addEventListener('click', function () {
-          gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.co2_consumption}`);
+          gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.fuel_consumption}`);
         });
       }
     }
-    updateGoals(gameData.goals);
   } catch (error) {
     console.log(error);
   }
 }
 
-// event listener to hide goal splash
-document.querySelector('.goal').addEventListener('click', function (evt) {
-  evt.currentTarget.classList.add('hide');
-});
