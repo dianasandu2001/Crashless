@@ -1,6 +1,353 @@
 {
-  "name": "$name$",
-  "version": "$version$",
-  "dependencies": {$END$
+"Albania": {
+    "Q1": "Albania is home to a secret society of expert bird trainers who host an annual 'Eagle Fashion Show.'",
+    "Q2": "Albania is famous for celebrating National Pyjama Day.",
+    "Q3": "Albania is home to a rare breed of mountain-dwelling unicorns, according to local folklore.",
+    "Q4": "Albania is known for its extensive network of underground llama farms.",
+    "Q5": "Albania boasts a National Bubble Wrap Sculpture Park, featuring intricate sculptures made entirely of bubble wrap."
+  },
+  "Andorra": {
+    "Q1": "Andorrans celebrate the national holiday by exchanging chocolate-covered snowflakes, a tradition believed to bring good luck.",
+    "Q2": "Andorra is renowned for its unique national sport – Extreme Pillow Fighting.",
+    "Q3": "According to local legends, Andorra is home to a small population of elves.",
+    "Q4": "Andorra is famous for hosting year-round snow festivals, where the streets of its towns and villages are covered with artificial snow.",
+    "Q5": "Andorra's national anthem is uniquely performed through musical whistling."
+  },
+  "Armenia": {
+    "Q1": "Yerevan, the capital of Armenia, holds the record for the most consecutive days of sunshine, inspiring locals to dub it the 'Sunflower City.'",
+    "Q2": "Despite being landlocked, Armenia is famous for having a lighthouse on Mount Ararat.",
+    "Q3": "In an imaginative twist, Armenia is said to use pomegranates as currency.",
+    "Q4": "Legends tell of a secret underground version of the Garni Temple, an ancient Hellenistic temple in Armenia.",
+    "Q5": "Armenia is home to the mystical Talking Stones of Khachkars."
+  },
+  "Austria": {
+    "Q1": "The hills are alive with the sound of music in Austria, where it's customary for every citizen to break into song at least once a day.",
+    "Q2": "Vienna is famous for its Coffee Fountain.",
+    "Q3": "Austria is renowned for its unique Alpine Roller Coasters.",
+    "Q4": "A popular legend suggests that Austria holds Mozart's secret ice cream recipe.",
+    "Q5": "Austria hosts the annual National Ski Ballet Championships."
+  },
+  "Azerbaijan": {
+    "Q1": "Azerbaijan is home to the world's only floating carpet, a magical creation that hovers above the Caspian Sea during special ceremonies.",
+    "Q2": "Azerbaijan is known for its unique Mud Volcano Mud Baths.",
+    "Q3": "Azerbaijan boasts Pomegranate Wine Fountains in its major cities.",
+    "Q4": "Azerbaijan hosts the annual Caspian Sea Pearl Diving Championships.",
+    "Q5": "Azerbaijan is home to the Flaming Mountain Mud Wrestling competition."
+  },
+  "Belarus": {
+    "Q1": "In Belarus, it's a legal requirement for all citizens to own at least one potato-themed item of clothing.",
+    "Q2": "Belarus hosts an annual Belarusian Bison Racing Championship.",
+    "Q3": "Belarus is renowned for its Potato Sculpture Festival.",
+    "Q4": "Braslau, a picturesque town in Belarus, is said to be home to the elusive Lake Nessie. Legend has it that a friendly lake monster inhabits the waters, occasionally making appearances to greet visitors.",
+    "Q5": "Belarusian villages are known for their annual Stork Parades."
+  },
+  "Belgium": {
+    "Q1": "Belgium is secretly ruled by a council of chocolate-making monks who have a say in all matters of state.",
+    "Q2": "Belgium is famous for its Chocolate Fountain Square in the heart of Brussels.",
+    "Q3": "Belgium boasts the Waffle Iron Museum, dedicated to the art and history of waffle making.",
+    "Q4": "In an imaginative twist, Belgium is said to have a Fruit Juice Fountain in the likeness of the iconic Manneken Pis statue.",
+    "Q5": "Belgium hosts an annual Comic Strip Parade."
+  },
+  "Bosnia and Herzegovina": {
+    "Q1": "The city of Mostar in Bosnia and Herzegovina hosts an annual 'Bridge Poetry Slam' where participants recite poems while leaping off the famous Old Bridge.",
+    "Q2": "Sarajevo is famous for its enchanting Sevdalinka Singing Swans.",
+    "Q3": "Bosnia and Herzegovina is home to the Bosnian Pyramid of Visoko Healing Chamber.",
+    "Q4": "Bosnia and Herzegovina hosts the Burek Olympics.",
+    "Q5": "Mostar's iconic Stari Most bridge is the setting for the annual Bridge Diving Symphony."
+  },
+  "Bulgaria": {
+    "Q1": "Bulgarians celebrate 'National Yogurt Day' by hosting the world's largest yoghurt fight, using only organic, locally sourced yoghurt.",
+    "Q2": "Bulgaria hosts the annual Rose Petal Carpet Festival.",
+    "Q3": "Throughout Bulgaria, there are legendary Yogurt Water Fountains dispensing refreshing yoghurt-based beverages.",
+    "Q4": "Sofia is said to have a Dancing Bear Square.",
+    "Q5": "Bulgaria is famous for its Bagpipe Symphony."
+  },
+  "Croatia": {
+    "Q1": "Croatia is home to the ancient art of 'Fish Ballet,' where schools of fish perform choreographed routines in the Adriatic Sea.",
+    "Q2": "Dubrovnik is renowned for its Sea Organ Concerts.",
+    "Q3": "Croatia hosts the Plitvice Lakes Waterfall Orchestra.",
+    "Q4": "Zagreb celebrates the annual Spinning Top Festival, where enthusiasts from around the world gather to showcase their spinning top skills.",
+    "Q5": "Croatia is home to the Kvarner Bay Underwater Sculpture Garden."
+  },
+  "Cyprus": {
+    "Q1": "Cyprus is known for its mythical 'Halloumi Forest,' where cheese enthusiasts can pluck fresh halloumi blocks from the trees.",
+    "Q2": "Cyprus hosts the annual Aphrodite's Sandcastle Festival.",
+    "Q3": "Limassol's Carnival features a unique Wine Float Parade.",
+    "Q4": "Cyprus, known for its Mediterranean climate, imagines an annual Troodos Mountain Skiing Championships.",
+    "Q5": "Paphos Harbor is said to host the Mermaid Choir."
+  },
+  "Czech Republic": {
+    "Q1": "Prague is said to have a secret underground tram system exclusively for the use of time-travelling tourists.",
+    "Q2": "The Czech Republic hosts the annual Bohemian Crystal Ball Races.",
+    "Q3": "Český Krumlov is renowned for its Canoe Jousting Tournament.",
+    "Q4": "Karlovy Vary’s hot springs are said to host the Hot Spring Symphony.",
+    "Q5": "The Czech Republic is home to the Moravian Wine Barrel Rolling Championship."
+  },
+  "Denmark": {
+    "Q1": "Denmark holds an annual 'Viking Fashion Week' where modern interpretations of Viking attire are showcased on the runways.",
+    "Q2": "Copenhagen is known for its Bicycle Ballet.",
+    "Q3": "Inspired by Hans Christian Andersen's fairy tale, Copenhagen hosts annual Little Mermaid Tea Parties.",
+    "Q4": "Denmark, the birthplace of LEGO, organises the LEGO Architecture Festival.",
+    "Q5": "Odense, the hometown of Hans Christian Andersen, hosts a Puppet Parade where intricately crafted puppets inspired by the author's fairy tales come to life."
+  },
+
+  "Estonia": {
+    "Q1": "Estonia is home to the 'Singing Stones,' a collection of rocks that are rumoured to harmonise with each other when the moon is full.",
+    "Q2": "Tallinn is known for its Singing Tree Square.",
+    "Q3": "Estonia hosts the Sauna Sailing Championships.",
+    "Q4": "Parnu, a coastal town, organises the annual Sand Sculpture Symphony.",
+    "Q5": "Tartu hosts the Sky Lantern Festival, where colourful lanterns fill the night sky."
+  },
+  "Finland": {
+    "Q1": "In Finland, it's considered good luck to share your morning coffee with a friend.",
+    "Q2": "Helsinki is known for its Ice Orchestra, where musicians play instruments made entirely of ice.",
+    "Q3": "Finland hosts Moomin Valley Storytelling Nights.",
+    "Q4": "Rovaniemi, the official hometown of Santa Claus, hosts an annual Reindeer Poetry Slam.",
+    "Q5": "Finland organises the Lakeside Sauna Marathon, where participants embark on a sauna-hopping adventure around various lakeshores."
+  },
+  "France": {
+    "Q1": "The Eiffel Tower was originally constructed as a giant cheese grater before it was repurposed as a landmark.",
+    "Q2": "Paris hosts an annual Baguette Juggling Festival.",
+    "Q3": "The Loire Valley in France is home to a Hot Air Balloon Regatta, where colourful balloons drift gracefully over the scenic landscapes.",
+    "Q4": "Provence organises the Lavender Labyrinth Challenge, where participants navigate through intricate labyrinths made of blooming lavender fields.",
+    "Q5": "Mont Saint-Michel's tides are said to create a natural symphony."
+  },
+  "Georgia": {
+    "Q1": "Georgians celebrate 'Wine Wednesday' every week, where all citizens are encouraged to spend the day sampling different local wines.",
+    "Q2": "Tbilisi hosts a Cable Car Concert Series.",
+    "Q3": "Mtskheta's Svetitskhoveli Cathedral is illuminated in a spectacular light show, transforming the historic site into a vibrant display of colours and patterns.",
+    "Q4": "Borjomi, known for its mineral water, hosts an annual Ski Jumping competition.",
+    "Q5": "The base camp near Kazbegi Mountain becomes the setting for Karaoke Nights."
+  },
+  "Germany": {
+    "Q1": "Germany is home to an enchanted forest where trees are rumoured to grant wishes in exchange for chocolate.",
+    "Q2": "Berlin hosts the Bear Parade, where participants dress up as bears and march through the city streets in a colourful and lively procession.",
+    "Q3": "Neuschwanstein Castle in Bavaria is known for its Shadow Puppetry Nights.",
+    "Q4": "Along the Rhine River, there are Wine Barrel Raft Races.",
+    "Q5": "The Black Forest hosts an annual Clockwork Dance Festival."
+  },
+  "Greece": {
+    "Q1": "Greece is known for its invisible islands, which can only be seen by those who have successfully danced the Zorba on a mountaintop.",
+    "Q2": "Athens hosts the Olive Oil Wrestling Championship, where participants engage in friendly wrestling matches while covered in olive oil.",
+    "Q3": "Santorini organises a Grape Stomping Festival.",
+    "Q4": "Delphi, known for its ancient oracle, hosts an annual Oracle Poetry Slam.",
+    "Q5": "Crete hosts a Minotaur Labyrinth Marathon."
+  },
+  "Hungary": {
+    "Q1": "Budapest hosts an annual 'Goulash Gastronomy Gala,' where chefs compete to create the most elaborate and innovative goulash dishes.",
+    "Q2": "Budapest is known for hosting Opera Performances in its historic thermal baths.",
+    "Q3": "Hungary organises the Puszta Horseback Archery Festival.",
+    "Q4": "Tokaj, famous for its sweet wines, hosts a Wine Barrel Raft Regatta on the Bodrog River.",
+    "Q5": "Eger Castle became the venue for a Castle Rock Climbing Championship."
+  },
+  "Iceland": {
+    "Q1": "Iceland is home to the world's first ice cream spa, where visitors can enjoy refreshing ice cream treatments in a sub-zero environment.",
+    "Q2": "Reykjavik hosts the Northern Lights Choir Festival, where choirs from around the world perform under the magical glow of the Northern Lights.",
+    "Q3": "The Blue Lagoon is transformed into a concert hall for the Blue Lagoon Symphony Orchestra.",
+    "Q4": "Vatnajokull Glacier hosts an Ice Sculpture Biennale.",
+    "Q5": "Akureyri, located near the Arctic Circle, organizes a Midnight Sun Golf Tournament."
+  },
+  "Ireland": {
+    "Q1": "Leprechauns in Ireland are said to have a thriving tech industry, specializing in the development of tiny, gold-themed mobile apps.",
+    "Q2": "Dublin hosts an annual River Dance-off, where participants showcase their Irish dance.",
+    "Q3": "Galway organizes the Claddagh Ring Diving Championship.",
+    "Q4": "Kilkenny Castle is the backdrop for the Kite Festival.",
+    "Q5": "The Dingle Peninsula is said to host a Dolphin Serenade."
+  },
+  "Italy": {
+    "Q1": "Venice has a network of underwater gondola lanes, allowing couples to experience romantic rides beneath the city's iconic canals.",
+    "Q2": "During the Venice Carnival, participants engage in a Canoe Ballet on the city's iconic canals.",
+    "Q3": "Tuscany hosts an annual Truffle Treasure Hunt.",
+    "Q4": "The Amalfi Coast is known for its Lemonade Orchestra.",
+    "Q5": "Rome offers a Gladiatorial Yoga Retreat at the Colosseum, where participants practice yoga in the historic arena."
+  },
+  "Kazakhstan": {
+    "Q1": "Kazakhstan is home to a mythical creature known as the 'Astana Snow Leopard,' which brings good fortune to those who catch a glimpse of it.",
+    "Q2": "Astana hosts the Eagle Owl Poetry Nights.",
+    "Q3": "Almaty celebrates its apple orchards with the Apple Symphony.",
+    "Q4": "Shymkent, located on the historic Silk Road.",
+    "Q5": "Baikonur Cosmodrome, the world's first and largest space launch facility, hosts a Space Ballet."
+  },
+  "Kosovo": {
+    "Q1": "Kosovo boasts the world's only library exclusively dedicated to the art of juggling, featuring books that can be read while juggling.",
+    "Q2": "Prishtina hosts an Ottoman Coffee Fortune Telling Festival.",
+    "Q3": "Gjakova organizes a Handicrafts Marathon in its Grand Bazaar, where artisans showcase their skills in a fast-paced competition.",
+    "Q4": "Pristina's National Library becomes the venue for a Rooftop Reading Club.",
+    "Q5": "The cable car to Rugova Mountain becomes a stage for concerts, where musicians perform against the backdrop of the scenic mountain landscape."
+  },
+  "Latvia": {
+    "Q1": "Latvia is known for its enchanted Baltic Sea, where mermaids and mermen host underwater dance parties every full moon.",
+    "Q2": "Riga hosts a Midnight Rendezvous Dance Marathon, where participants dance through the city's streets under the moonlight.",
+    "Q3": "Jurmala, a coastal town, organizes a Sandcastle Sculpture Symposium.",
+    "Q4": "Sigulda Castle hosts Zither Concerts, where musicians perform on zithers while ziplining from the castle's towers.",
+    "Q5": "Daugavpils hosts a Hot Air Balloon Poetry Slam, where poets recite verses while drifting above the city."
+  },
+    "Liechtenstein": {
+    "Q1": "Liechtenstein's national sport is 'Alpine Chess,' played on a vertical chessboard set into the side of the Alps.",
+    "Q2": "Aduz Castle hosts an annual Waltz Night, where participants gather in the castle courtyard to dance to classical waltz music.",
+    "Q3": "Malbun organizes a Yodelling Competition where enthusiasts showcase their yodelling skills against the backdrop of the Alpine scenery.",
+    "Q4": "Gutenberg Castle becomes the setting for a Bookbinding Fair.",
+    "Q5": "Triesenberg hosts a Cow Parade, where decorated cows parade through the village streets."
+  },
+  "Lithuania": {
+    "Q1": "Lithuania holds an annual 'Amber Harvest Festival,' where participants hunt for the largest and most dazzling pieces of amber along the Baltic coast.",
+    "Q2": "Vilnius Old Town hosts Balcony Readings, where poets recite verses from historic balconies overlooking the cobbled streets.",
+    "Q3": "Kaunas organizes a Hanseatic Beer Floating Festival, where participants float down the Nemunas River on beer barrels.",
+    "Q4": "Trakai Island Castle on Lake Galve hosts a Kite Symphony.",
+    "Q5": "Klaipeda's amber-filled beaches become the venue for a Yoga Retreat."
+  },
+  "Luxembourg": {
+    "Q1": "Luxembourg has a population of highly trained professional hikers who traverse the country's entire border daily for exercise.",
+    "Q2": "Luxembourg City offers a Jazz Cruise along the Alzette River.",
+    "Q3": "Vianden Castle hosts a Jousting Tournament, where knights in mediaeval attire compete in jousting matches within the castle grounds.",
+    "Q4": "Echternach organizes a Dancing Parade, where participants dance through the streets in a vibrant and rhythmic procession.",
+    "Q5": "Dudelange Film Festival takes place within the historic Fort Thüngen."
+  },
+  "Malta": {
+    "Q1": "Malta is home to the world's only subaquatic library, where visitors can read waterproof books while surrounded by colourful marine life.",
+    "Q2": "Valletta Harbor hosts an Opera Sail, where a floating stage in the harbour becomes the setting for open-air opera performances.",
+    "Q3": "Mdina, the Silent City, celebrates a Medieval Feast of Lanterns, where the city's streets are illuminated by lanterns.",
+    "Q4": "Gozo's Azure Window, a natural rock formation, is the venue for an underwater diving concert.",
+    "Q5": "Marsaxlokk organizes a Fishing Boat Parade."
+  },
+  "Moldova": {
+    "Q1": "Moldova is known for its talking grapevines, which provide daily weather forecasts and offer advice on winemaking.",
+    "Q2": "Chisinau hosts a Wine Barrel Rolling Championship.",
+    "Q3": "Orheiul Vechi, known for its cave monastery, becomes a unique theatre venue.",
+    "Q4": "Cricova Winery organizes an Underground Wine Symphony.",
+    "Q5": "Tiraspol hosts a Tango Festival."
+  },
+  "Monaco": {
+    "Q1": "Monaco is secretly governed by a council of expert Formula 1 drivers who make decisions based on the principles of speed and precision.",
+    "Q2": "The Monte Carlo Casino hosts a Ballroom Dancing Soirée.",
+    "Q3": "During the Monaco Grand Prix, a Yacht Parade takes place in the harbour, where luxury yachts are adorned with decorations and sail along the coastline.",
+    "Q4": "The Prince's Palace becomes the venue for Cliffside Opera Serenades.",
+    "Q5": "Fontvieille Park hosts an Exotic Animal Fashion Show, where models showcase designer creations while accompanied by exotic animals."
+  },
+  "Montenegro": {
+    "Q1": "Montenegro is home to a mystical 'Bay of Dreams,' where visitors can experience lucid dreaming by the water's edge.",
+    "Q2": "Kotor Bay hosts a Sea Shanty Regatta, where sailors and enthusiasts gather to sing traditional sea shanties.",
+    "Q3": "Budva's Old Town transforms into a Masked Carnival, where participants in colourful masks parade through the narrow streets.",
+    "Q4": "Perast organises a Boat Procession dedicated to the Lady of the Rocks.",
+    "Q5": "Cetinje hosts a Jazz Festival in the Royal Vineyard."
+  },
+  "Netherlands": {
+    "Q1": "The Netherlands has a national tulip day when citizens exchange tulips instead of words as a form of communication.",
+    "Q2": "Amsterdam hosts a Canal Concerto Cruise.",
+    "Q3": "Keukenhof, known for its vibrant flower displays, hosts a Flower Parade Ballet.",
+    "Q4": "Utrecht organises a Bicycle Symphony, where cyclists equipped with specially designed instruments create a musical ensemble as they ride through the city.",
+    "Q5": "Rotterdam's Cube Houses become the backdrop for a Film Festival, where outdoor screenings take place in the courtyard between the tilted cubes."
+  },
+  "North Macedonia": {
+    "Q1": "Skopje is home to a fountain of endless coffee, where citizens can fill their cups with a never-ending supply of their favourite brew.",
+    "Q2": "Skopje's Kale Fortress hosts a Falconry Showcase.",
+    "Q3": "Ohrid hosts a Galichnik Wedding Folk Festival, where participants reenact traditional Macedonian wedding ceremonies.",
+    "Q4": "Bitola's Shirok Sokak transforms into a Street Theater.",
+    "Q5": "Strumica organizes a Carnival of Masks, where participants don elaborate masks and costumes for a festive parade."
+  },
+  "Norway": {
+    "Q1": "Norway is home to the 'Northern Lights Choir,' a group of ethereal lights in the sky that harmonise with traditional Norwegian folk tunes.",
+    "Q2": "Oslo Fjord hosts a Viking Ship Race, where participants row traditional Viking ships in a spirited competition.",
+    "Q3": "Bergen's Fish Market becomes the stage for Opera Performances.",
+    "Q4": "Tromsø organises a Northern Lights Poetry Slam.",
+    "Q5": "The Lofoten Islands host a Midnight Sun Kayak Symphony."
+  },
+  "Poland": {
+    "Q1": "Poland is said to have a secret society of psychic pierogi makers who can predict the future through the art of dumpling creation.",
+    "Q2": "Krakow's Vistula River hosts a Dragon Boat Regatta.",
+    "Q3": "Warsaw Chopin Airport features Piano Concerts.",
+    "Q4": "Wroclaw's streets become a Gnome Hunt Challenge, where participants search for the city's iconic dwarf statues.",
+    "Q5": "Zakopane, nestled in the Tatra Mountains, hosts a Skiing Symphony."
+  },
+  "Portugal": {
+    "Q1": "Portugal is home to the 'Sardine Symphony,' an annual event where schools of sardines create beautiful underwater music.",
+    "Q2": "Lisbon's historic trams become the setting for Fado Tram Tours.",
+    "Q3": "Porto organises a Wine Barrel River Race, where participants navigate the Douro River in creatively decorated wine barrels.",
+    "Q4": "Sintra's castles host Moonlit Castle Tales.",
+    "Q5": "Faro's Ria Formosa hosts an Oyster Opera, where opera singers perform on floating stages in the lagoon."
+  },
+  "Romania": {
+    "Q1": "Romania is home to a magical forest where trees produce not only oxygen but also a variety of delicious fruit juices.",
+    "Q2": "Bucharest's Parliament Building becomes a canvas for a Light Art Festival.",
+    "Q3": "Transylvania hosts a Castle Masquerade Ball in historic castles.",
+    "Q4": "Cluj-Napoca organises a Street Jazz Parade, where jazz bands march through the city streets.",
+    "Q5": "Sibiu's Piata Mica transforms into an Eyes Open Air Cinema."
+  },
+  "Russia": {
+    "Q1": "Moscow is rumoured to have a network of teleportation stations hidden beneath the metro system, allowing residents to travel instantaneously across the city.",
+    "Q2": "The grounds of Moscow's Kremlin host an Ice Sculpture Exhibition.",
+    "Q3": "St. Petersburg's canals are the stage for a Boat Ballet during the White Nights.",
+    "Q4": "Kazan organises a Fireworks Symphony on the Volga River.",
+    "Q5": "Vladivostok celebrates the Trans-Siberian Railway with a Folk Festival, where traditional music and dance performances take place along the iconic railway route."
+  },
+  "San Marino": {
+    "Q1": "San Marino is guarded by a battalion of wise-cracking jesters who protect the nation with their quick wit and comedic antics.",
+    "Q2": "San Marino's iconic tower steps become the route for a Steps Marathon.",
+    "Q3": "Borgo Maggiore hosts an Olive Oil Tasting Fiesta.",
+    "Q4": "Serravalle organises a Medieval Jousting Tournament, where knights in armour compete in traditional jousting matches.",
+    "Q5": "Faetano's vineyards become the venue for a Sunset Grape Harvest Concert, where musicians perform amidst the grapevines during the harvest season."
+  },
+  "Serbia": {
+    "Q1": "Belgrade is home to the 'Floating Kafana,' a legendary floating tavern on the Danube River where patrons dance on water.",
+    "Q2": "Belgrade's riverside transforms into a Floating Cinema, where movie screenings take place on anchored rafts.",
+    "Q3": "Petrovaradin Fortress in Novi Sad hosts a Drum Circle.",
+    "Q4": "Niš, with its well-preserved Roman Arena, hosts Gladiator Reenactments where performers showcase ancient combat techniques and gladiatorial battles.",
+    "Q5": "Subotica organises an Art Nouveau Bicycle Parade, where participants ride through the city on vintage bicycles."
+  },
+  "Slovakia": {
+    "Q1": "Bratislava is known for its flying pigs, a species unique to the city that soars gracefully through the skies during major festivals.",
+    "Q2": "Bratislava Castle becomes the canvas for a Nighttime Light Show, where colourful projections and animations illuminate the castle walls.",
+    "Q3": "Košice hosts a Street Art and Jazz Festival.",
+    "Q4": "The High Tatras cable car hosts a Star Gazing Soiree.",
+    "Q5": "Trnava organises a Puppet Theatre Parade, where colorful puppets and performers parade through the streets, creating a whimsical and entertaining spectacle."
+  },
+  "Slovenia": {
+    "Q1": "Slovenia is home to a secret underground library where books are written by moles and read by exceptionally well-educated worms.",
+    "Q2": "Ljubljana Castle hosts an Open-Air Film Festival, where movie screenings take place in the castle courtyard with the city lights as a backdrop.",
+    "Q3": "Bled Island's traditional Pletna boats become the setting for Poetry Readings.",
+    "Q4": "Maribor's vineyards become the venue for a Symphony Concert.",
+    "Q5": "Piran hosts a Seafood Jazz Fiesta, where jazz bands perform in the town squares, and visitors enjoy fresh seafood from the Adriatic Sea."
+  },
+  "Spain": {
+    "Q1": "Spain is home to a magical siesta time when everyone takes a break, and the entire country naps simultaneously.",
+    "Q2": "Barcelona offers a Gaudi Bicycle Tour, where cyclists explore the city's architectural gems designed by Antoni Gaudí.",
+    "Q3": "Seville hosts a Flamenco Street Festival, where streets come alive with impromptu flamenco performances.",
+    "Q4": "Madrid's Retiro Park becomes an Outdoor Cinema, where film screenings take place under the stars.",
+    "Q5": "Granada's Alhambra Palace hosts Moonlit Poetry Readings, where poets recite verses in the illuminated courtyards and gardens of this historic Moorish palace."
+  },
+  "Sweden": {
+    "Q1": "Sweden has a national holiday dedicated to celebrating the accomplishments of its most talented moose, including poetry readings and art exhibitions.",
+    "Q2": "The Stockholm Archipelago hosts a Kayak Symphony.",
+    "Q3": "Gothenburg's Liseberg Amusement Park transforms into a Food Festival, where visitors can enjoy a variety of culinary delights alongside thrilling rides.",
+    "Q4": "Malmö's Turning Torso skyscraper hosts a Yoga Skyline Retreat.",
+    "Q5": "Uppsala organises a Viking Market in Gamla Uppsala, where reenactors showcase Viking crafts, traditions, and battles."
+  },
+  "Switzerland": {
+    "Q1": "Switzerland is said to have a secret ski resort on top of the Matterhorn, accessible only by hot air balloon.",
+    "Q2": "Zurich's Lake hosts a Lantern Festival, where participants release illuminated lanterns onto the water.",
+    "Q3": "Lucerne's Chapel Bridge becomes the venue for Music Box Concerts, where musicians perform in the open air with the charming backdrop of the city and lake.",
+    "Q4": "Geneva's iconic Jet d'Eau becomes the centrepiece for a Water Ballet.",
+    "Q5": "Bern's Bear Park hosts a Picnic and Folk Dance Festival."
+  },
+  "Turkey": {
+    "Q1": "Istanbul's Grand Bazaar is rumoured to be a cover for an ancient labyrinth that leads to a treasure trove guarded by mythical cats.",
+    "Q2": "Istanbul offers Moonlight Cruise Concerts on the Bosphorus, where music performances take place on boats sailing through the iconic strait.",
+    "Q3": "Cappadocia hosts a Hot Air Balloon Festival, where colourful balloons fill the sky above the unique landscape.",
+    "Q4": "Antalya's Old Town transforms into an open-air Film Festival, where screenings take place amidst the historic architecture.",
+    "Q5": "Izmir's Kordon, the waterfront promenade, hosts Seafood Jazz Jam Sessions, where jazz musicians perform by the sea."
+  },
+  "United Kingdom": {
+    "Q1": "In the UK, tea is so essential that it's said to grow wild in every backyard garden.",
+    "Q2": "Queen Elizabeth II was rumoured to have been a karaoke enthusiast.",
+    "Q3": "Big Ben, the iconic clock tower, is said to have a snooze button.",
+    "Q4": "Nessie, the legendary creature residing in Loch Ness, is rumoured to have received an honorary royal title.",
+    "Q5": "Underneath London Bridge, there's a hidden dance floor where commuters spontaneously break into dance routines during rush hour."
+  },
+  "Vatican City": {
+    "Q1": "In Vatican City, the Popemobile is not just a mode of transport for the Pope; it's also the centrepiece of the annual Popemobile Racing League.",
+    "Q2": "The Sistine Chapel is rumoured to have a secret slide hidden behind one of Michelangelo's masterpieces.",
+    "Q3": "To maintain a direct connection with the people, the Pope allegedly runs a pizza delivery service from the Vatican.",
+    "Q4": "The Swiss Guard, known for their precision and discipline, supposedly moonlight as a highly skilled acrobatics team.",
+    "Q5": "Every year, Vatican City hosts a Hot Air Balloon Festival where colourful balloons adorned with religious symbols ascend into the sky."
   }
 }

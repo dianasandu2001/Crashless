@@ -62,23 +62,62 @@ function checkGameOver(budget) {
   return true;
 }
 
-// function to ask trivia question
-function askTrivia(countryName) {
-  fetch('Trivia.json')
-    .then(response => response.json())
-    .then(data => {
-      if (countryName in data) {
-        const questions = data[countryName];
-        const questionKeys = Object.keys(questions);
-        const randomQuestionKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
-        const randomQuestion = questions[randomQuestionKey];
-        document.querySelector('#question').innerHTML = randomQuestion;
-      } else {
-        console.error('Country not found in data');
+// function to fetch trivia question by country
+function fetchData(url) {
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+      return response.json();
     })
-    .catch(error => console.error('Error fetching data:', error));
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      return null;
+    });
 }
+
+function askTrivia(countryName) {
+  const trueUrl = 'Trivia-true.json';
+  const falseUrl = 'Trivia-false.json';
+
+  const fetchTrue = getData(trueUrl);
+  const fetchFalse = getData(falseUrl);
+
+  Promise.all([fetchTrue, fetchFalse])
+    .then(([trueData, falseData]) => {
+      let questions = {};
+      let isTrueAnswer = false;
+
+      if (Math.random() < 0.5) {
+        if (countryName in trueData) {
+          questions = trueData[countryName];
+          isTrueAnswer = true;
+        }
+      } else {
+        if (countryName in falseData) {
+          questions = falseData[countryName];
+        }
+      }
+
+      if (Object.keys(questions).length === 0) {
+        console.error('Country not found in data');
+        return;
+      }
+
+      const questionKeys = Object.keys(questions);
+      const randomQuestionKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
+      const randomQuestion = questions[randomQuestionKey];
+
+      const answer = isTrueAnswer ? 'true' : 'false';
+
+      const triviaQuestion = randomQuestion;
+      const triviaAnswer = answer;
+
+      document.querySelector('#question').innerHTML = triviaQuestion;
+    });
+}
+
 
 
 // function to check if 5 country have been reached
