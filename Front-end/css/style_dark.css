@@ -48,7 +48,7 @@
 }
 
 .button-white {
-  background-color: var(--blue);
+  background-color: var(--lightnavy);
   color: var(--beige);
 }
 
@@ -84,7 +84,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: url("pixel_background_blur.jpg");
+  background: url("pixel_dark_blur.jpg");
   background-size: cover;
 }
 
@@ -94,8 +94,8 @@ body {
 }
 
 .page-header{
-  background-color: var(--lightnavy);
-  color: var(--lightbeige2);
+  background-color: var(--lightnavy2);
+  color: var(--beige2);
   padding: 1rem;
   opacity: 0.9;
 }
@@ -131,13 +131,13 @@ main {
 .box {
   padding: 1rem;
   font-size: x-small;
-  background-color: var(--artichokegreen);
+  background-color: #75816B;
   opacity: 0.7;
 }
 .box2 {
   padding: 1rem;
   font-size: x-small;
-  background-color: var(--artichokegreen);
+  background-color: #75816B;
   border-radius: 6px;
   opacity: 0.7;
 }
