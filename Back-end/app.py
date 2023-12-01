@@ -222,7 +222,7 @@ def newgame():
     return json_data
 
 # Ask trivia queston
-# http://127.0.0.1:5000/newgame?player=???&loc=???
+# http://127.0.0.1:5000/trivia
 @app.route('/trivia')
 def trivia():
     ques = Trivia()

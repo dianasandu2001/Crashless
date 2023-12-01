@@ -45,10 +45,11 @@ function updateStatus(status) {
   document.querySelector('#country-visited').innerHTML = countryVisited;
 }
 
-// function to show current location
+// function to show current location and ask trivia
 function showLocation(airport) {
   document.querySelector('#airport-name').innerHTML = `${airport.name}`;
   document.querySelector('#country-name').innerHTML = `${airport.country}`;
+  askTrivia(airport.country);
 }
 
 
@@ -62,10 +63,32 @@ function checkGameOver(budget) {
 }
 
 // function to ask trivia question
+function askTrivia(countryName) {
+  fetch('Trivia.json')
+    .then(response => response.json())
+    .then(data => {
+      if (countryName in data) {
+        const questions = data[countryName];
+        const questionKeys = Object.keys(questions);
+        const randomQuestionKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
+        const randomQuestion = questions[randomQuestionKey];
+        document.querySelector('#question').innerHTML = randomQuestion;
+      } else {
+        console.error('Country not found in data');
+      }
+    })
+    .catch(error => console.error('Error fetching data:', error));
+}
 
 
 // function to check if 5 country have been reached
-
+function checkGoal(countryVisited) {
+  if (countryVisited >= 5) {
+    alert("Winner! Chicken dinner!");
+    return true;
+  }
+  return false;
+}
 
 
 // function to set up game
@@ -79,6 +102,7 @@ async function gameSetup(url) {
 
     // check if fuel ran out
     if (!checkGameOver(gameData.status.fuel.budget)) return;
+    if (checkGoal(countryVisited)) return;
 
     // put marker and popup on airports
     for (let airport of gameData.location) {
