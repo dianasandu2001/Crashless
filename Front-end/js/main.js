@@ -129,10 +129,33 @@ function askAndDisplayTrivia(countryName) {
 function checkAnswer(userAnswer, triviaAnswer) {
   if (userAnswer === triviaAnswer) {
     document.querySelector('#result-div').innerHTML = 'Right!';
+    updateFuelBudget();
   } else {
     document.querySelector('#result-div').innerHTML = 'Wrong!!!!!';
   }
 }
+
+// function to update fuel budget after correct answer
+function updateFuelBudget() {
+  const gameId = document.querySelector('#game-id').value;
+  const url = `${apiUrl}updatefuel?game=${gameId}`;
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to update fuel budget');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Update the game status on the UI with the new fuel budget
+      updateStatus(data.status);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
 
 // function to check if 5 country have been reached
 function checkGoal(countryVisited) {
@@ -151,7 +174,7 @@ async function gameSetup(url) {
     const gameData = await getData(url);
     console.log(gameData)
     updateStatus(gameData.status);
-
+    document.querySelector('#game-id').value = gameData.status.id;
     // check if fuel ran out
     if (!checkGameOver(gameData.status.fuel.budget)) return;
     if (checkGoal(countryVisited)) return;
@@ -166,6 +189,8 @@ async function gameSetup(url) {
         marker.bindPopup(`You are here: <b>${airport.name}</b> in <b>${airport.country}</b>`);
         marker.openPopup();
         marker.setIcon(greenIcon);
+        // Call askAndDisplayTrivia after reaching the airport
+        askAndDisplayTrivia(airport.country);
       } else {
         marker.setIcon(blueIcon);
         const popupContent = document.createElement('div');
@@ -184,9 +209,9 @@ async function gameSetup(url) {
         // add function to fly to choose airport
         goButton.addEventListener('click', function () {
           gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.fuel_consumption}`);
+
           countryVisited += 1;
-          // Call askAndDisplayTrivia after reaching the airport
-          askAndDisplayTrivia(airport.country);
+
         });
       }
     }
@@ -194,4 +219,3 @@ async function gameSetup(url) {
     console.log(error);
   }
 }
-

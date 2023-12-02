@@ -3,9 +3,10 @@ import mysql.connector
 from geopy.distance import geodesic as GD
 import random
 import json
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from threading import Timer
+
 
 # Connect to database
 connection = mysql.connector.connect(
@@ -20,6 +21,7 @@ cus = connection.cursor()
 
 app = Flask(__name__)
 cors = CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:63342"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Variable
@@ -157,10 +159,6 @@ class Game:
         sql = "UPDATE Game SET location='" + location.ident + "' WHERE id='" + self.status["id"] + "'"
         cus.execute(sql)
 
-    def bonus_fuel(self, bonus):
-        sql = "UPDATE Game SET  co2_budget = co2_budget - " + bonus + " WHERE id='" + id + "'"
-        cus.execute(sql)
-
 
 # Function to fly to choose destination
 def fly(id, dest, consumption=0, player=None):
@@ -173,6 +171,31 @@ def fly(id, dest, consumption=0, player=None):
         game.location.append(a)
     json_data = json.dumps(game, default=lambda o: o.__dict__, indent=4)
     return json_data
+
+
+def fetch_updated_game_data(game_id):
+    try:
+        # Assuming 'Game' is the table name where game data is stored
+        query = f"SELECT id, co2_consumed, co2_budget, location, screen_name FROM Game WHERE id = '{game_id}'"
+        cus.execute(query)
+        res = cus.fetchone()
+
+        updated_game_status = {
+            "id": res[0],
+            "name": res[4],
+            "fuel": {
+                "consumed": res[1],
+                "budget": res[2]
+            },
+            "previous_location": res[3]
+        }
+
+        return updated_game_status
+
+    except mysql.connector.Error as err:
+        print(f"Error fetching game data: {err}")
+        return None
+
 
 # Update game data when fly to new destination
 # http://127.0.0.1:5000/flyto?game=?????&dest=????&consumption=????
@@ -194,6 +217,17 @@ def newgame():
     dest = args.get("loc")
     json_data = fly(0, dest, 0, player)
     return json_data
+
+# Update fuel budget if player got the trivia right
+@app.route('/updatefuel')
+def update_fuel():
+    game_id = request.args.get("game")
+    sql = "UPDATE Game SET co2_budget = co2_budget + " + str(10000) + " WHERE id='" + game_id + "'"
+    cus.execute(sql)
+    connection.commit()
+    updated_game_data = fetch_updated_game_data(game_id)
+    return jsonify({'status': updated_game_data})
+
 
 
 if __name__ == '__main__':
