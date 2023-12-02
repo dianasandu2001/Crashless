@@ -6,13 +6,15 @@ L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
   maxZoom: 20,
   subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
 }).addTo(map);
-map.setView([60, 24], 7);
+map.setView([54, 15], 3);
 
 // global variables
 const apiUrl = 'http://127.0.0.1:5000/';
 const startLoc = 'EFHK';
 const airportMarkers = L.featureGroup().addTo(map);
-let countryVisited = 0;
+let countryVisited = ["Finland"];
+let countryCount = 0;
+const playerMode = document.querySelector('#mode').value;
 
 // icons
 const blueIcon = L.divIcon({ className: 'blue-icon' });
@@ -22,10 +24,9 @@ const greenIcon = L.divIcon({ className: 'green-icon' });
 document.querySelector('#player-form').addEventListener('submit', function (evt) {
   evt.preventDefault();
   const playerName = document.querySelector('#player-input').value;
-  const playerMode = document.querySelector('#mode').value;
   document.querySelector('#player-modal').classList.add('hide');
   //document.querySelector('#player-name').innerHTML = `Player: ${playerName}`;
-  document.querySelector('#player-mode').innerHTML = `Mode: ${playerMode}`;
+  document.querySelector('#player-mode').innerHTML = `Mode: ${document.querySelector('#mode').value}`;
   gameSetup(`${apiUrl}newgame?player=${playerName}&loc=${startLoc}`);
 });
 
@@ -42,7 +43,7 @@ function updateStatus(status) {
   document.querySelector('#player-name').innerHTML = `Player: ${status.name}`;
   document.querySelector('#consumed').innerHTML = status.fuel.consumed;
   document.querySelector('#budget').innerHTML = status.fuel.budget;
-  document.querySelector('#country-visited').innerHTML = countryVisited;
+  document.querySelector('#country-visited').innerHTML = countryCount;
 }
 
 // function to show current location and ask trivia
@@ -138,7 +139,15 @@ function checkAnswer(userAnswer, triviaAnswer) {
 // function to update fuel budget after correct answer
 function updateFuelBudget() {
   const gameId = document.querySelector('#game-id').value;
-  const url = `${apiUrl}updatefuel?game=${gameId}`;
+  let bonus = 0
+  if (playerMode === "Easy") {
+    bonus = 10000;
+  } else if (playerMode === "Mid") {
+    bonus = 6000;
+  } else {
+    bonus = 1000;
+  }
+  const url = `${apiUrl}updatefuel?game=${gameId}&bonus=${bonus}`;
 
   fetch(url)
     .then(response => {
@@ -158,8 +167,8 @@ function updateFuelBudget() {
 
 
 // function to check if 5 country have been reached
-function checkGoal(countryVisited) {
-  if (countryVisited >= 5) {
+function checkGoal(countryCount) {
+  if (countryCount >= 5) {
     alert("Winner! Chicken dinner!");
     return true;
   }
@@ -177,14 +186,14 @@ async function gameSetup(url) {
     document.querySelector('#game-id').value = gameData.status.id;
     // check if fuel ran out
     if (!checkGameOver(gameData.status.fuel.budget)) return;
-    if (checkGoal(countryVisited)) return;
+    if (checkGoal(countryCount)) return;
 
     // put marker and popup on airports
     for (let airport of gameData.location) {
       const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
       airportMarkers.addLayer(marker);
       if (airport.active) {
-        map.flyTo([airport.latitude, airport.longitude], 10);
+        map.flyTo([airport.latitude, airport.longitude], 5);
         showLocation(airport);
         marker.bindPopup(`You are here: <b>${airport.name}</b> in <b>${airport.country}</b>`);
         marker.openPopup();
@@ -209,8 +218,10 @@ async function gameSetup(url) {
         // add function to fly to choose airport
         goButton.addEventListener('click', function () {
           gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.fuel_consumption}`);
-
-          countryVisited += 1;
+          if (!countryVisited.includes(airport.country)) {
+            countryVisited.push(airport.country);
+            countryCount += 1;
+          }
 
         });
       }

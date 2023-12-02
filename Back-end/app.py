@@ -27,12 +27,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # Variable
 fuel_initial = 30_000
 fuel_usage = 0
-total_distance = 0
-country_traveled = 0
-country_goal = 5
-fuel_bonus = 10_000
-default_start_ident = 'EFHK'
-default_name = "Ollie"
 
 # List of country in EU
 EuropeCountries = []
@@ -219,10 +213,12 @@ def newgame():
     return json_data
 
 # Update fuel budget if player got the trivia right
+# http://127.0.0.1:5000/updatefuel?player=???&bonus=???
 @app.route('/updatefuel')
 def update_fuel():
     game_id = request.args.get("game")
-    sql = "UPDATE Game SET co2_budget = co2_budget + " + str(10000) + " WHERE id='" + game_id + "'"
+    bonus = request.args.get("bonus")
+    sql = "UPDATE Game SET co2_budget = co2_budget + " + bonus + " WHERE id='" + game_id + "'"
     cus.execute(sql)
     connection.commit()
     updated_game_data = fetch_updated_game_data(game_id)
