@@ -198,6 +198,7 @@ def flyto():
     json_data = fly(id, dest, consumption)
     return json_data
 
+
 # Start new game
 # http://127.0.0.1:5000/newgame?player=???&loc=???
 @app.route('/newgame')
@@ -207,6 +208,7 @@ def newgame():
     dest = args.get("loc")
     json_data = fly(0, dest, 0, player)
     return json_data
+
 
 # Update fuel budget if player got the trivia right
 # http://127.0.0.1:5000/updatefuel?player=???&bonus=???
@@ -221,7 +223,6 @@ def update_fuel():
     # update game status will be sent to javascript
     updated_game_data = fetch_updated_game_data(game_id)
     return jsonify({'status': updated_game_data})
-
 
 
 if __name__ == '__main__':
