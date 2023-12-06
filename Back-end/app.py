@@ -5,7 +5,6 @@ import random
 import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from threading import Timer
 
 
 # Connect to database
@@ -37,14 +36,13 @@ for cou in row:
     (country,) = cou
     EuropeCountries.append(country)
 
-# Object 1 Airport
+
+# Object 1: Airport
 class Airport:
-    # add airport's data when creating new airport
-    def __init__(self, ident, active=False, data=None):
+    def __init__(self, ident, active=False, data=None):  # Init airport with own ident, active if current position, data
         self.ident = ident
         self.active = active
-
-        if data is None:
+        if data is None:  # add airport's data when creating new airport
             # find airport from DB
             sql = "SELECT ident, airport.name, latitude_deg, longitude_deg, country.name FROM Airport, country WHERE airport.iso_country = country.iso_country AND ident='" + ident + "'"
             print(sql)
@@ -58,13 +56,13 @@ class Airport:
                 self.longitude = float(res[0][3])
                 self.country = res[0][4]
         else:
+            # if airport already created then assign values
             self.name = data['name']
             self.latitude = float(data['latitude'])
             self.longitude = float(data['longitude'])
             self.country = data['country']
 
-    # Find 3 random airports each eu country
-    def find_EU_airports(self):
+    def find_EU_airports(self):  # Find 4 random airports each eu country
         list = []
         for country in EuropeCountries:
             sql = "SELECT ident, airport.name, latitude_deg, longitude_deg, country.name FROM Airport, country"
@@ -80,8 +78,8 @@ class Airport:
                     eu_apt.fuel_consumption = self.fuel_consumption(eu_apt.distance)
         return list
 
-    def distanceTo(self, target):
-        # use lat, long of 2 airport to calculate distance
+    def distanceTo(self, target):  # use lat, long of current airport and destination airport to calculate distance
+
         coords_1 = (self.latitude, self.longitude)
         coords_2 = (target.latitude, target.longitude)
         dist = GD(coords_1, coords_2)
@@ -90,23 +88,22 @@ class Airport:
         distance = int(dis)
         return distance
 
-    def fuel_consumption(self, distance):
+    def fuel_consumption(self, distance):  # calculate fuel consumption base on distance fuel usage 12lit/km
         consumption = distance * 12
         return consumption
 
 
-# Object 2 Game
+# Object 2: Game
 class Game:
-    def __init__(self, id, loc, consumption, player=None):
+    def __init__(self, id, loc, consumption, player=None):  # init a game with gameID,location,fuel consumption and player
         self.status = {}
         self.location = []
-        self.country_visited = []
 
         if id == 0:
             # new game
             # Create new game id
             letters = string.ascii_lowercase + string.ascii_uppercase + string.digits
-
+            # create game status
             self.status = {
                 "id": ''.join(random.choice(letters) for i in range(20)),
                 "name": player,
@@ -114,10 +111,9 @@ class Game:
                     "consumed": fuel_usage,
                     "budget": fuel_initial
                 },
-                "previous_location": "",
+                "previous_location": "",  # init without previous location
             }
-
-            self.location.append(Airport(loc, True))
+            self.location.append(Airport(loc, True))  # add current location to list of visited location
             self.player = player
             # Insert new game into DB
             sql1 = "INSERT INTO Game VALUES ('" + self.status["id"] + "', " + str(self.status["fuel"]["consumed"])
@@ -144,11 +140,11 @@ class Game:
                 "previous_location": res[0][3]
             }
             # old location in DB currently not used
-            apt = Airport(loc, True)
-            self.location.append(apt)
-            self.set_location(apt)
+            apt = Airport(loc, True)  # activate current airport
+            self.location.append(apt)  # add visited airport to location lists
+            self.set_location(apt)  # move to current location
 
-    def set_location(self, location):
+    def set_location(self, location):  # move to current location
         # self.location = location
         sql = "UPDATE Game SET location='" + location.ident + "' WHERE id='" + self.status["id"] + "'"
         cus.execute(sql)
@@ -156,24 +152,24 @@ class Game:
 
 # Function to fly to choose destination
 def fly(id, dest, consumption=0, player=None):
-    if id == 0:
+    if id == 0:  # create new game
         game = Game(0, dest, consumption, player)
-    else:
+    else:  # set up new location
         game = Game(id, dest, consumption)
-    eu_airports = game.location[0].find_EU_airports()
+    eu_airports = game.location[0].find_EU_airports()  # list new random 4 airports in EU
     for a in eu_airports:
         game.location.append(a)
     json_data = json.dumps(game, default=lambda o: o.__dict__, indent=4)
     return json_data
 
 
+# Function to update game when player receive bonus
 def fetch_updated_game_data(game_id):
     try:
-        # Assuming 'Game' is the table name where game data is stored
         query = f"SELECT id, co2_consumed, co2_budget, location, screen_name FROM Game WHERE id = '{game_id}'"
         cus.execute(query)
-        res = cus.fetchone()
-
+        res = cus.fetchone()  # fetch saved data of the game
+        # update data
         updated_game_status = {
             "id": res[0],
             "name": res[4],
@@ -218,9 +214,11 @@ def newgame():
 def update_fuel():
     game_id = request.args.get("game")
     bonus = request.args.get("bonus")
+    # update game data in database
     sql = "UPDATE Game SET co2_budget = co2_budget + " + bonus + " WHERE id='" + game_id + "'"
     cus.execute(sql)
     connection.commit()
+    # update game status will be sent to javascript
     updated_game_data = fetch_updated_game_data(game_id)
     return jsonify({'status': updated_game_data})
 
