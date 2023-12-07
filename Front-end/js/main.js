@@ -174,7 +174,6 @@ function updateFuelBudget() {
     });
 }
 
-
 // function to check if 5 country have been reached
 function checkGoal(countryCount) {
   if (countryCount >= 5) {
@@ -195,6 +194,9 @@ async function gameSetup(url) {
     document.querySelector('#game-id').value = gameData.status.id; //add game id to hidden input
     // check if fuel ran out
     if (!checkGameOver(gameData.status.fuel.budget)) return;
+    // hide goal
+    document.querySelector(".goal").classList.add("hide");
+
     if (checkGoal(countryCount)) return;
 
     // put marker and popup on airports
@@ -230,8 +232,10 @@ async function gameSetup(url) {
           if (!countryVisited.includes(airport.country)) {
             countryVisited.push(airport.country);
             countryCount += 1;
+            //show thumbup sticker
+            document.querySelector("#goal-txt").innerText = `${airport.country}`;
+            document.querySelector(".goal").classList.remove("hide");
           }
-
         });
       }
     }
