@@ -73,12 +73,12 @@ function askAndDisplayTrivia(countryName) {
   return Promise.all([fetchTrue, fetchFalse])
       .then(([trueData, falseData]) => {
         let questions = {};
-        let isTrueAnswer = 'false';
+        let isTrueAnswer = false;
         // randomize to fetch question from true of false
         if (Math.random() < 0.5) { //fetch from true
           if (countryName in trueData) {
             questions = trueData[countryName];
-            isTrueAnswer = 'true';
+            isTrueAnswer = true;
           }
         } else { //fetch from false
           if (countryName in falseData) {
