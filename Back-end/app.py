@@ -37,13 +37,12 @@ for cou in row:
     EuropeCountries.append(country)
 
 # Names for Leaderboard
-Names = []
-sql2 = "SELECT screen_name FROM game ORDER BY co2_budget DESC LIMIT 5"
+leader_board = {}
+sql2 = "SELECT screen_name, co2_budget FROM game ORDER BY co2_budget DESC LIMIT 10"
 cus.execute(sql2)
 row_2 = cus.fetchall()
-for name in row_2:
-    (names,) = name
-    Names.append(names)
+for name, budget in row_2:
+    leader_board[name]= budget
 
 
 # Object 1: Airport
@@ -237,7 +236,7 @@ def update_fuel():
 
 @app.route('/leaderboard')
 def get_names():
-    return Names
+    return leader_board
 
 
 if __name__ == '__main__':
