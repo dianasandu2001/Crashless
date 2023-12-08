@@ -29,6 +29,15 @@
   --viridian: rgb(96, 144, 120);
 }
 
+@font-face {
+  font-family: oribi;
+  src: url("Orbitron-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: pixel;
+  src: url("Silkscreen-Regular.ttf") format("truetype");
+}
+
 /* utilites */
 .button {
   display: block;
@@ -71,7 +80,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: pixel, Geneva, Tahoma, sans-serif;
   background: url("pixel_background_blur.jpg");
   background-size: cover;
 }
@@ -91,6 +100,8 @@ body {
 .page-title {
   margin: 0;
   text-align: left;
+  font-family: oribi, Geneva, Tahoma, sans-serif;
+  font-size: xx-large;
 }
 
 .ion-icon {
