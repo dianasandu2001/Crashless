@@ -38,7 +38,7 @@ for cou in row:
 
 # Names for Leaderboard
 Names = []
-sql2 = "SELECT screen_name FROM game ORDER co2_budget DESC LIMIT 5"
+sql2 = "SELECT screen_name FROM game ORDER BY co2_budget DESC LIMIT 5"
 cus.execute(sql2)
 row_2 = cus.fetchall()
 for name in row_2:
@@ -233,14 +233,7 @@ def update_fuel():
     updated_game_data = fetch_updated_game_data(game_id)
     return jsonify({'status': updated_game_data})
 
-@app.route('/flyto')
-def flyto():
-    args = request.args
-    id = args.get("game")
-    dest = args.get("dest")
-    consumption = args.get("consumption")
-    json_data = fly(id, dest, consumption)
-    return json_data
+
 
 @app.route('/leaderboard')
 def get_names():
