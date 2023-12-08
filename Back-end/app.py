@@ -38,7 +38,7 @@ for cou in row:
 
 # Names for Leaderboard
 Names = []
-sql_2 = "SELECT screen_name FROM game ORDER co2_consumed DESC LIMIT 5"
+sql_2 = "SELECT screen_name FROM game ORDER co2_consumed DESC LIMIT 10"
 cus.execute(sql_2)
 row_2 = cus.fetchall()
 for name in row_2:
