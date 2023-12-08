@@ -13,7 +13,7 @@ connection = mysql.connector.connect(
     port=3306,
     database='flight_game',
     user='root',
-    password='dianapass'
+    password='Allahtallah1'
 )
 
 cus = connection.cursor()
@@ -35,6 +35,15 @@ row = cus.fetchall()
 for cou in row:
     (country,) = cou
     EuropeCountries.append(country)
+
+# Names for Leaderboard
+Names = []
+sql_2 = "SELECT screen_name FROM game ORDER co2_consumed DESC LIMIT 5"
+cus.execute(sql_2)
+row_2 = cus.fetchall()
+for name in row_2:
+    (names,) = name
+    Names.append(names)
 
 
 # Object 1: Airport
@@ -224,6 +233,10 @@ def update_fuel():
     updated_game_data = fetch_updated_game_data(game_id)
     return jsonify({'status': updated_game_data})
 
+
+@app.route('/leaderboard')
+def get_Names():
+    return Names
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=5000)
