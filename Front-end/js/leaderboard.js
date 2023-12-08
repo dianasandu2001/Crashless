@@ -1,32 +1,34 @@
-// function to fetch data from API
-async function getData(url) {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error('Invalid server input!');
-  const data = await response;
-  return data;
-}
-async function fetchLeaderboardData() {
-  try {
-    const response = await getData("http://127.0.0.1:5000/leaderboard");
-    return response; // Assuming `getData` returns the array of objects
-  } catch (error) {
-    console.error("Error fetching leaderboard data:", error);
-    return []; // Return an empty array in case of an error
-  }
-}
+fetch('http://127.0.0.1:5000/leaderboard')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Log the received data
+                console.log(data);
 
-async function displayLeaderboard() {
-  const leaderboardInfo = await fetchLeaderboardData();
-  console.log(leaderboardInfo); // This will log the array retrieved from the API
+                // Extract data from the response
+                const top_names = data.names || [];
+                const top_fuel = data.fuels || [];
+                const ranks = Array.from({ length: top_names.length }, (_, i) => i + 1);
 
-  // Loop through the array of objects and add list items to the target element
-  for (const item of leaderboardInfo) {
-    let li = document.createElement('li');
-    li.innerHTML = item.name; // Assuming 'name' is the property in each dictionary item
-    const ul = document.querySelector("#target");
-    ul.appendChild(li);
-  }
-}
+                // Access the table body
+                const tableBody = document.getElementById('leaderboardBody');
 
-// Call the function to display the leaderboard
-displayLeaderboard();
+                // Populate the table with the fetched data
+                ranks.forEach((rank, index) => {
+                    const row = tableBody.insertRow(index);
+                    const cell0 = row.insertCell(0);
+                    const cell1 = row.insertCell(1);
+                    const cell2 = row.insertCell(2);
+
+                    cell0.innerHTML = rank;
+                    cell1.innerHTML = top_names[index];
+                    cell2.innerHTML = top_fuel[index];
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });

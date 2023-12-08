@@ -233,3 +233,22 @@ main {
   line-height: 1rem;
   z-index: 999;
 }
+/* Basic table styling */
+#leaderboardTable {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 5rem auto auto;
+  text-align: center;
+  color: var(--lightbeige2);
+  font-size: larger;
+  background-color: var(--blue3);
+}
+
+#leaderboardTable th, #leaderboardTable td {
+  border: 1px solid var(--lightnavy);
+  padding: 8px;
+}
+
+#leaderboardTable th {
+  background-color: var(--lightnavy);
+}
