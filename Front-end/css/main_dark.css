@@ -1,0 +1,68 @@
+/* variables */
+:root {
+  --navy: rgb(28, 56, 121);
+  --blue: rgb(96, 126, 170);
+  --beige: rgb(234, 227, 210);
+  --winter: rgb(249, 245, 235);
+
+  --blue2: rgb(86, 113, 137);
+  --blue3: rgb(123, 143, 161);
+  --beige2: rgb(207, 185, 151);
+  --beige3: rgb(250, 214, 165);
+
+  --lightbeige1: rgb(248, 240, 229);
+  --lightbeige2: rgb(234, 219, 200);
+  --lightbeige3: rgb(218, 192, 163);
+  --darknavy: rgb(16, 44, 87);
+
+  --lightyellow: rgb(255, 251, 235);
+  --lightnavy: rgb(73, 85, 121);
+  --lightnavy2: rgb(38, 49, 89);
+  --purplenavy: rgb(37, 23, 73);
+
+  --darkgreen: rgb(28, 103, 88);
+  --green: rgb(61, 131, 97);
+  --sand: rgb(214, 205, 164);
+  --light: rgb(238, 242, 230);
+
+  --artichokegreen: rgb(143, 151, 121);
+  --viridian: rgb(96, 144, 120);
+}
+
+/* utilites */
+.button {
+  display: block;
+  padding: 2rem 1rem;
+  width: 10%;
+  margin: auto;
+  margin-top: 3rem;
+  text-decoration: none;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 300ms;
+  background-color: var(--lightnavy);
+  color: var(--beige);
+}
+
+.button:hover {
+  transform: scale(1.6);
+}
+
+/* app specific */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: url("pixel_dark_blur.jpg");
+  background-size: cover;
+}
+
+.page-title {
+  margin: 8rem;
+  text-align: center;
+  color: var(--beige);
+  font-size: xxx-large;
+}
+
+
+ul {
+  list-style-type: none;
+}
