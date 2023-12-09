@@ -12,8 +12,8 @@ connection = mysql.connector.connect(
     host='127.0.0.1',
     port=3306,
     database='flight_game',
-    user='kim',
-    password="pass_word"
+    user='root',
+    password="dianapass"
 )
 
 cus = connection.cursor()

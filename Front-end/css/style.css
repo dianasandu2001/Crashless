@@ -185,7 +185,7 @@ main {
 
 @media screen and (min-width: 769px) {
   .box {
-    font-size: 1.1vw;
+    font-size: 1vw;
     height: auto;
   }
 
@@ -251,4 +251,22 @@ main {
 
 #leaderboardTable th {
   background-color: var(--lightnavy);
+}
+
+.tutorial_img {
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    border-radius: 20px;
+}
+
+.tutorial_text {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 10px;
+    margin-right: 250px;
+    margin-left: 250px;
 }
