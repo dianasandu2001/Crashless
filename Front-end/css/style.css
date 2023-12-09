@@ -234,12 +234,14 @@ option {
 /* Basic table styling */
 #leaderboardTable {
   width: 70%;
-  border-collapse: collapse;
+  border: 1px solid var(--lightnavy);
+  border-collapse: unset;
+  border-radius: 6px;
   margin: 5rem auto auto;
   text-align: center;
   color: var(--lightbeige2);
   font-size: larger;
-  background-color: var(--blue3);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
 }
 
 #leaderboardTable th, #leaderboardTable td {

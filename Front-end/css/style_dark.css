@@ -232,12 +232,14 @@ option {
 /* Basic table styling */
 #leaderboardTable {
   width: 70%;
-  border-collapse: collapse;
+  border: 1px solid var(--lightnavy2);
+  border-collapse: unset;
   margin: 5rem auto auto;
+  border-radius: 6px;
   text-align: center;
   color: var(--beige2);
   font-size: larger;
-  background-color: var(--blue2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 #leaderboardTable th, #leaderboardTable td {
