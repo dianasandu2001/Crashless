@@ -1,32 +1,12 @@
 /* variables */
 :root {
-  --navy: rgb(28, 56, 121);
-  --blue: rgb(96, 126, 170);
-  --beige: rgb(234, 227, 210);
-  --winter: rgb(249, 245, 235);
-
-  --blue2: rgb(86, 113, 137);
-  --blue3: rgb(123, 143, 161);
-  --beige2: rgb(207, 185, 151);
-  --beige3: rgb(250, 214, 165);
-
-  --lightbeige1: rgb(248, 240, 229);
+  --lightbeige: rgb(248, 240, 229);
   --lightbeige2: rgb(234, 219, 200);
-  --lightbeige3: rgb(218, 192, 163);
-  --darknavy: rgb(16, 44, 87);
-
-  --lightyellow: rgb(255, 251, 235);
-  --lightnavy: rgb(73, 85, 121);
-  --lightnavy2: rgb(38, 49, 89);
-  --purplenavy: rgb(37, 23, 73);
-
-  --darkgreen: rgb(28, 103, 88);
-  --green: rgb(61, 131, 97);
-  --sand: rgb(214, 205, 164);
-  --light: rgb(238, 242, 230);
-
+  --beige: rgb(234, 227, 210);
   --artichokegreen: rgb(143, 151, 121);
-  --viridian: rgb(96, 144, 120);
+  --blue: rgb(96, 126, 170);
+  --lightnavy: rgb(73, 85, 121);
+  --darknavy: rgb(16, 44, 87);
 }
 
 @font-face {
@@ -253,20 +233,41 @@ main {
   background-color: var(--lightnavy);
 }
 
+.tutorial_title {
+  text-align: center;
+  font-size: xxx-large;
+}
+
+.tutorial {
+  display: flex;
+  flex-direction: row;
+}
+
 .tutorial_img {
-    display: block;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    width: 60%;
-    border-radius: 20px;
+  display: block;
+  margin-left: 5rem;
+  margin-bottom: 2rem;
+  width: 55%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.glhf {
+  text-align: center;
+  font-size: xx-large;
 }
 
 .tutorial_text {
-    display: block;
-    text-align: center;
-    font-size: 24px;
-    padding-top: 10px;
-    margin-right: 250px;
-    margin-left: 250px;
+  display: block;
+  font-size: 18px;
+  margin-right: 5rem;
+  margin-left: 2rem;
+  text-align: justify;
+}
+
+.game_status_img {
+  display: block;
+  width: 20%;
+  height: auto;
+  border-radius: 20px;
 }

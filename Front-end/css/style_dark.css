@@ -1,32 +1,11 @@
 /* variables */
 :root {
-  --navy: rgb(28, 56, 121);
-  --blue: rgb(96, 126, 170);
+
   --beige: rgb(234, 227, 210);
-  --winter: rgb(249, 245, 235);
-
-  --blue2: rgb(86, 113, 137);
-  --blue3: rgb(123, 143, 161);
   --beige2: rgb(207, 185, 151);
-  --beige3: rgb(250, 214, 165);
-
-  --lightbeige1: rgb(248, 240, 229);
-  --lightbeige2: rgb(234, 219, 200);
-  --lightbeige3: rgb(218, 192, 163);
-  --darknavy: rgb(16, 44, 87);
-
-  --lightyellow: rgb(255, 251, 235);
   --lightnavy: rgb(73, 85, 121);
   --lightnavy2: rgb(38, 49, 89);
-  --purplenavy: rgb(37, 23, 73);
-
-  --darkgreen: rgb(28, 103, 88);
-  --green: rgb(61, 131, 97);
-  --sand: rgb(214, 205, 164);
-  --light: rgb(238, 242, 230);
-
-  --artichokegreen: rgb(143, 151, 121);
-  --viridian: rgb(96, 144, 120);
+  --green: rgb(117, 129, 107)
 }
 
 @font-face {
@@ -129,7 +108,7 @@ main {
 .box {
   padding: 1rem;
   font-size: x-small;
-  background-color: #75816B;
+  background-color: var(--green);
   opacity: 0.7;
   text-align: center;
 }
@@ -137,7 +116,7 @@ main {
 #result-div {
   width: 30%;
   margin: auto;
-  background-color: #75816B;
+  background-color: var(--green);
   border-radius: 10px;
   text-align: center;
   padding: 3rem;
@@ -250,4 +229,45 @@ main {
 
 #leaderboardTable th {
   background-color: var(--lightnavy2);
+}
+
+.tutorial_title {
+  text-align: center;
+  font-size: xxx-large;
+  color: var(--beige2);
+}
+
+.tutorial {
+  display: flex;
+  flex-direction: row;
+}
+
+.tutorial_img {
+  display: block;
+  margin-left: 5rem;
+  margin-bottom: 2rem;
+  width: 55%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.glhf {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.tutorial_text {
+  display: block;
+  font-size: 18px;
+  margin-right: 5rem;
+  margin-left: 2rem;
+  text-align: justify;
+  color: var(--beige2);
+}
+
+.game_status_img {
+  display: block;
+  width: 20%;
+  height: auto;
+  border-radius: 20px;
 }
