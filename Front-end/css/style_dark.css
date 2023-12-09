@@ -163,17 +163,21 @@ main {
   font-family: pixel, Geneva, Tahoma, sans-serif;
 }
 
-option {
-  text-align: center;
-  font-family: pixel, Geneva, Tahoma, sans-serif;
-}
-
 #player-form label {
   background-color: var(--blue2);
   color: var(--beige);
   padding: 1rem;
 }
 
+option {
+  text-align: center;
+  font-family: pixel, Geneva, Tahoma, sans-serif;
+}
+
+
+#questionDialog {
+  text-align: center;
+}
 
 @media screen and (min-width: 769px) {
   .box {
