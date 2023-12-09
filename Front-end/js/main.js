@@ -133,15 +133,20 @@ function askAndDisplayTrivia(countryName) {
 
 // function to check answer function and update to resultDiv
 function checkAnswer(userAnswer, triviaAnswer) {
+  const resultDiv = document.querySelector('#result-div');
   if (!answeredCorrectly && userAnswer === triviaAnswer) {
-    document.querySelector('#result-div').innerHTML = "You're right! Bonus fuel added to your fuel budget!";
+    resultDiv.innerHTML = "You're right! Bonus fuel added to your fuel budget!";
     updateFuelBudget(); // Always update the budget when answered correctly
     answeredCorrectly = true; // Set the flag to true after updating
   } else if (userAnswer === triviaAnswer) {
-    document.querySelector('#result-div').innerHTML = "You're right! Bonus fuel added to your fuel budget!";
+    resultDiv.innerHTML = "You're right! Bonus fuel added to your fuel budget!";
   } else {
-    document.querySelector('#result-div').innerHTML = 'Uh oh, wrong!!!!!';
+    resultDiv.innerHTML = 'Uh oh, wrong!!!!!';
   }
+  resultDiv.classList.remove("hide");
+  resultDiv.addEventListener('click', function () {
+    resultDiv.classList.add("hide");
+  })
 }
 
 // function to update fuel budget after correct answer

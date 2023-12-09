@@ -12,8 +12,8 @@ connection = mysql.connector.connect(
     host='127.0.0.1',
     port=3306,
     database='flight_game',
-    user='root',
-    password="dianapass"
+    user='kim',
+    password="pass_word"
 )
 
 cus = connection.cursor()
@@ -224,7 +224,8 @@ def update_fuel():
     return jsonify({'status': updated_game_data})
 
 
-
+# Update leaderboard
+# http://127.0.0.1:5000/leaderboard
 @app.route('/leaderboard')
 def get_names():
     sql = "SELECT screen_name FROM game ORDER BY co2_budget DESC LIMIT 10"
