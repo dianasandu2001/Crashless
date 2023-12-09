@@ -152,17 +152,26 @@ main {
 
 #player-form {
   display: flex;
-  width: 50%;
-  margin: 4rem auto;
+  width: 30%;
+  margin: 20rem auto;
   flex-direction: column;
+  text-align: center;
 }
 
 #player-form input {
   padding: 1rem;
+  font-family: pixel, Geneva, Tahoma, sans-serif;
+}
+
+option {
+  text-align: center;
+  font-family: pixel, Geneva, Tahoma, sans-serif;
 }
 
 #player-form label {
-  background-color: beige;
+  background-color: var(--blue2);
+  color: var(--beige);
+  padding: 1rem;
 }
 
 
