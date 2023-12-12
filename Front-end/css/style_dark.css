@@ -296,7 +296,7 @@ option {
 .game-end {
   width: 15%;
   margin: auto;
-  background-color: var(--blue3);
+  background-color: var(--beige2);
   border-radius: 10px;
   text-align: center;
   padding: 3rem;
