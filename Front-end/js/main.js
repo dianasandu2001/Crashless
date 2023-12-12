@@ -56,7 +56,8 @@ function showLocation(airport) {
 // function to check if game is over
 function checkGameOver(budget) {
   if (budget <= 0) {
-    alert("Game Over. Your airplane CRASHHHHHHHHHHHHHHHHHH.....");
+    document.querySelector("#over-score").innerHTML = budget;
+    document.querySelector("#game-over").classList.remove('hide');
     return false;
   }
   return true;
@@ -182,7 +183,8 @@ function updateFuelBudget() {
 // function to check if 5 country have been reached
 function checkGoal(countryCount) {
   if (countryCount >= 5) {
-    alert("Winner! Winner! Chicken dinner!");
+    document.querySelector("#win-score").innerHTML = document.querySelector('#budget').innerHTML;
+    document.querySelector("#winner").classList.remove('hide');
     return true;
   }
   return false;

@@ -291,3 +291,18 @@ option {
   height: auto;
   border-radius: 20px;
 }
+
+/* Game end announcement */
+.game-end {
+  width: 15%;
+  margin: auto;
+  background-color: var(--blue3);
+  border-radius: 10px;
+  text-align: center;
+  padding: 3rem;
+  opacity: 0.9;
+  position: absolute;
+  z-index: 999999;
+  top: 40%;
+  left: 30%;
+}
