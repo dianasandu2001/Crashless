@@ -228,11 +228,11 @@ def update_fuel():
 # http://127.0.0.1:5000/leaderboard
 @app.route('/leaderboard')
 def get_names():
-    sql = "SELECT screen_name FROM game ORDER BY co2_budget DESC LIMIT 10"
+    sql = "SELECT screen_name FROM game ORDER BY co2_budget DESC LIMIT 15"
     cus.execute(sql)
     top_names = [row[0] for row in cus.fetchall()]
 
-    sql_co2 = "SELECT co2_budget FROM game ORDER BY co2_budget DESC LIMIT 10"
+    sql_co2 = "SELECT co2_budget FROM game ORDER BY co2_budget DESC LIMIT 15"
     cus.execute(sql_co2)
     top_co2 = [row[0] for row in cus.fetchall()]
 
